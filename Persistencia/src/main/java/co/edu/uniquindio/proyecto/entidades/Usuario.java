@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,4 +23,17 @@ public class Usuario extends Persona implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Cuidad cuidad;
+
+    @OneToMany(mappedBy = "codigo_usuario")
+    private List<Comentario> comentarios;
+
+    @OneToMany(mappedBy = "codigo_usuario")
+    private List<Compra>compras;
+
+    @OneToMany(mappedBy = "codigo_usuario")
+    private List<DetalleSubasta> detalleSubastas;
+
+    @OneToMany
+    private List<Chat> chats;
+
 }

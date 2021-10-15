@@ -26,6 +26,9 @@ public class Subasta implements Serializable {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private List<Producto>productos;
+    private Subasta subasta;
+
+    @OneToMany
+    private List<DetalleSubasta> detalleSubastas;
 
 }

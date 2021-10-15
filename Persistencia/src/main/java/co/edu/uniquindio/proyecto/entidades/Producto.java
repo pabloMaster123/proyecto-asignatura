@@ -5,11 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -40,9 +39,14 @@ public class Producto implements Serializable {
     @Column(nullable = false)
     private Integer descuento;
 
-    private Usuario codigo_vendedor;
+    @OneToMany(mappedBy = "codigo_producto")
+    private List<Comentario> comentarios;
 
-    private Cuidad codigo_cuidad;
+    @OneToMany(mappedBy = "subasta")
+    private List<Subasta> subastas;
+
+    @ManyToMany(mappedBy = "productos")
+    private List<Categoria> categorias;
 
 }
 

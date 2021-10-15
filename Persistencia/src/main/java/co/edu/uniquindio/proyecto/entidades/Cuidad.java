@@ -8,7 +8,9 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,5 +25,8 @@ public class Cuidad implements Serializable {
 
     @Column(nullable = false)
     private String nombre;
+
+    @OneToMany(mappedBy = "cuidad")
+    private List<Usuario> usuaios;
 
 }

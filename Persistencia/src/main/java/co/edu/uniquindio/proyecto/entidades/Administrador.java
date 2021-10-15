@@ -22,5 +22,4 @@ public class Administrador extends Persona implements Serializable {
     @Column(length = 10)
     private String codigo;
 
-
 }

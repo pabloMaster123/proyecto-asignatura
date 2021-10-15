@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -22,8 +23,11 @@ public class DetalleSubasta implements Serializable {
     @EqualsAndHashCode.Include
     private String codigo;
 
+    @ManyToOne
+    @Column(nullable = false)
     private Subasta codigo_subasta;
 
+    @ManyToOne
     private Usuario codigo_usuario;
 
     @Column(nullable = false)

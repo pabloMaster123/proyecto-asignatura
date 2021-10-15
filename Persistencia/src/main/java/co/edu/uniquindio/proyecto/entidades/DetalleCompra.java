@@ -29,4 +29,7 @@ public class DetalleCompra implements Serializable {
     @Column(nullable = false)
     private Integer precio_producto;
 
+    @ManyToOne
+    private Compra compra;
+
 }

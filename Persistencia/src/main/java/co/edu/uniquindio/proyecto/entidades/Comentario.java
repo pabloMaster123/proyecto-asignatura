@@ -20,7 +20,8 @@ public class Comentario implements Serializable {
     @EqualsAndHashCode.Include
     private String codigo;
 
-    @OneToOne
+    @ManyToOne
+    @Column(nullable = false)
     private Producto codigo_producto;
 
     @ManyToOne
