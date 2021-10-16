@@ -33,7 +33,10 @@ public class Usuario extends Persona implements Serializable {
     @OneToMany(mappedBy = "codigo_usuario")
     private List<DetalleSubasta> detalleSubastas;
 
-    @OneToMany
+    @OneToMany(mappedBy = "codigo_usuario")
     private List<Chat> chats;
+
+    @ManyToMany
+    private List<Producto> productos;
 
 }

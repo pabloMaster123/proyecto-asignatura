@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -21,7 +23,7 @@ public class Compra implements Serializable {
     @EqualsAndHashCode.Include
     private String codigo;
 
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     @ManyToOne
     private Usuario codigo_usuario;
 

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,13 +22,9 @@ public class Chat implements Serializable {
     @EqualsAndHashCode.Include
     private String codigo;
 
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     @ManyToOne
     private Usuario codigo_usuario;
-
-    @Column(nullable = false)
-    @ManyToOne
-    private Producto codigo_producto;
 
     @OneToMany(mappedBy = "chats")
     private List<Mensaje> mensajes;

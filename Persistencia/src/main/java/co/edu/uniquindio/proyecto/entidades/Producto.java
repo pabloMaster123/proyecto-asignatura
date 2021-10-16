@@ -6,9 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Getter
@@ -48,5 +51,7 @@ public class Producto implements Serializable {
     @ManyToMany(mappedBy = "productos")
     private List<Categoria> categorias;
 
+    @ManyToMany
+    private List<Usuario> usuarios;
 }
 

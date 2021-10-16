@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -24,10 +21,11 @@ public class DetalleSubasta implements Serializable {
     private String codigo;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Subasta codigo_subasta;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Usuario codigo_usuario;
 
     @Column(nullable = false)

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
@@ -30,6 +31,7 @@ public class DetalleCompra implements Serializable {
     private Integer precio_producto;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Compra compra;
 
 }
