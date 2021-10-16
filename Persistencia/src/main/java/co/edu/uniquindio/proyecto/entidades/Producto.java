@@ -10,8 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Entity
 @Getter
@@ -51,7 +50,18 @@ public class Producto implements Serializable {
     @ManyToMany(mappedBy = "productos")
     private List<Categoria> categorias;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "productos")
     private List<Usuario> usuarios;
+
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private Cuidad cuidad;
+
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private Usuario usuario;
+
+    @ElementCollection
+    private List<String> ruta;
 }
 

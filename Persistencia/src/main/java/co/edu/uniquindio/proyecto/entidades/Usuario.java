@@ -39,4 +39,7 @@ public class Usuario extends Persona implements Serializable {
     @ManyToMany
     private List<Producto> productos;
 
+    @ElementCollection
+    private List<String> telefono;
+
 }

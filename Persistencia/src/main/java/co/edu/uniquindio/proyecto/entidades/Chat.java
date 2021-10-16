@@ -26,6 +26,11 @@ public class Chat implements Serializable {
     @ManyToOne
     private Usuario codigo_usuario;
 
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private Producto producto;
+
+
     @OneToMany(mappedBy = "chats")
     private List<Mensaje> mensajes;
 
